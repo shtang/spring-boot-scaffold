@@ -42,7 +42,7 @@ public class DataSourceConfiguration {
      * @throws SQLException
      */
     @Primary
-    @Bean(name = "primaryDataSource", destroyMethod = "close")
+    @Bean(name = "dataSource", destroyMethod = "close")
     public DruidDataSource druidDataSource(DataSourceProperties dataSourceProperties) throws SQLException {
         DruidDataSource source = new DruidDataSource();
         source.setUsername(dataSourceProperties.getUserName());
@@ -114,10 +114,10 @@ public class DataSourceConfiguration {
     private void printStacks() {
         StackTraceElement[] elements = Thread.currentThread().getStackTrace();
         log.debug("========================");
-
         for (int i = 0; i < elements.length; i++) {
             log.debug(ToStringBuilder.reflectionToString(elements[i]));
         }
+        log.debug("========================");
     }
 
 
