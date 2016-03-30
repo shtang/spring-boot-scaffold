@@ -20,7 +20,7 @@
         </dependency>
 
         <!-- 阿里dubbo分布rpc服务-->
-        <dependency>
+       <!-- <dependency>
             <groupId>boot-dubbo</groupId>
             <artifactId>spring-boot-dubbo-starter</artifactId>
         </dependency>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.alibaba</groupId>
