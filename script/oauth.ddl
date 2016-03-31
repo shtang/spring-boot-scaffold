@@ -58,15 +58,24 @@ CREATE TABLE oauth_code (
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
+DROP TABLE IF EXISTS oauth_approvals;
+CREATE TABLE oauth_approvals (
+  userId         VARCHAR(255),
+  clientId       VARCHAR(255),
+  status         VARCHAR(255),
+  expiresAt      TIMESTAMP,
+  lastModifiedAt TIMESTAMP DEFAULT now(),
+  scope          VARCHAR(255)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
 -- Add indexes
+CREATE INDEX approvals_id_index ON oauth_approvals (clientId, userId);
 CREATE INDEX token_id_index ON oauth_access_token (token_id);
 CREATE INDEX authentication_id_index ON oauth_access_token (authentication_id);
 CREATE INDEX user_name_index ON oauth_access_token (user_name);
 CREATE INDEX client_id_index ON oauth_access_token (client_id);
 CREATE INDEX refresh_token_index ON oauth_access_token (refresh_token);
-
 CREATE INDEX token_id_index ON oauth_refresh_token (token_id);
-
 CREATE INDEX code_index ON oauth_code (code);
-
-

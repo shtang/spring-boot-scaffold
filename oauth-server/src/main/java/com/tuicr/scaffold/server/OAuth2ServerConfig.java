@@ -39,10 +39,12 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Bean
     public ClientDetailsService clientDetailsService() throws Exception {
+        log.debug("init ClientDetailsService ...");
         ClientDetailsService clientDetailsService = new JdbcClientDetailsServiceBuilder()
                 .jdbc()
                 .dataSource(dataSource)
-                .passwordEncoder(new StandardPasswordEncoder()).build();
+                .passwordEncoder(new StandardPasswordEncoder())
+                .build();
         log.debug(ToStringBuilder.reflectionToString(clientDetailsService.toString()));
         return clientDetailsService;
     }
@@ -50,17 +52,20 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Bean
     public TokenStore tokenStore() {
+        log.debug("init TokenStore ...");
         return new JdbcTokenStore(dataSource);
     }
 
 
     @Bean
     public ApprovalStore approvalStore() {
+        log.debug("init ApprovalStore ...");
         return new JdbcApprovalStore(dataSource);
     }
 
     @Bean
     public AuthorizationCodeServices authorizationCodeServices() {
+        log.debug("init AuthorizationCodeServices ...");
         return new JdbcAuthorizationCodeServices(dataSource);
     }
 
@@ -72,8 +77,6 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-
-
     }
 
     @Override
