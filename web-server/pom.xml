@@ -25,10 +25,14 @@
         </dependency>
 
         <!-- 阿里dubbo分布rpc服务-->
+        <!-- Comment out the user-defined artifact, which resides in
+        | https://github.com/cyzaoj/spring-boot-dubbo-starter
+        |
         <dependency>
             <groupId>boot-dubbo</groupId>
             <artifactId>spring-boot-dubbo-starter</artifactId>
         </dependency>
+        | -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
