@@ -1,7 +1,7 @@
 package com.tuicr.scaffold.controller;
 
-import com.tuicr.scaffold.data.DataModelResult;
-import com.tuicr.scaffold.data.StateCode;
+//import com.tuicr.scaffold.data.DataModelResult;
+//import com.tuicr.scaffold.data.StateCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -39,7 +39,7 @@ public class RestfulApiAdvice {
     @ExceptionHandler(value = Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
-    public DataModelResult<String> exception(Exception exception, WebRequest request) {
+    /*public DataModelResult<String> exception(Exception exception, WebRequest request) {
         log.error("RestfulApiAdvice -> [ params={} exception={} message={}] ", request.getParameterMap(), exception.getClass(), exception.getMessage());
         String message = StringUtils.EMPTY;
         HttpServletRequest httpServletRequest = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -58,5 +58,9 @@ public class RestfulApiAdvice {
             message = StringUtils.isBlank(exception.getMessage()) ? exception.getClass().getName() : exception.getMessage();
         }
         return new DataModelResult(stateCode, null, message);
+    }*/
+    public String exception(Exception exception, WebRequest request) {
+        log.error("RestfulApiAdvice -> [ params={} exception={} message={}] ", request.getParameterMap(), exception.getClass(), exception.getMessage());
+        return StringUtils.EMPTY;
     }
 }
