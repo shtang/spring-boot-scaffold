@@ -6,41 +6,38 @@ springboot脚手架，集成jpa freemarker dubbo security为一体,使用不到�
 项目使用了lombok，so 用idea开发的小伙伴请安装lombok插件，不然会提示报错
 
 #目录结构
-|____src                                        <br>                                       
-| |____main                                     <br>
-| | |____java                                   <br>
-| | | |____com                                  <br>
-| | | | |____tuicr                              <br>
-| | | | | |____scaffold                         <br>
-| | | | | | |____ApplicationStartUp.java        <br>
-| | | | | | |____Bootstrap.java                 <br>
-| | | | | | |____controller                     <br>
-| | | | | | | |____api                          <br>
-| | | | | | | | |____TestController.java        <br>
-| | | | | | | |____RestfulApiAdvice.java                //请求切面监听,initBinder  ,exceptionHandler都可以在这配置           <br>
-| | | | | | |____server                                                                                                 <br>
-| | | | | | | |____config                               // spring相关配置                                                 <br>
-| | | | | | | | |____CommonConfiguration.java                                                                           <br>
-| | | | | | | | |____DataSourceConfiguration.java                                                                         <br>
-| | | | | | | |____MvcConfig.java                                                                                       <br>
-| | | | | | | |____properties                           //对应配置文件,boot自动装置相关配置到对应的bean                           <br>
-| | | | | | | | |____DataSourceProperties.java                                                                                       <br>
-| | | | | | | |____SecurityConfig.java                   //springsecurity相关配置                                               <br>
-| | | | | | | |____ServletContainerCustomizer.java        //配置错误跳转页面                                                    <br>
-| | |____resources                                                                                                      <br>
-| | | |____application.yml                          //基础配置,(必须)                                                     <br>
-| | | |____dbconfig.properties                      //数据源配置                                                             <br>
-| | | |____dubbo.properties                         //dubbo配置                                                               <br>
-| | | |____i18n                                     //国际化资源文件                                                           <br>
-| | | | |____message_en_US.properties                                                                                       <br>
-| | | | |____message_zh_CN.properties                                                                                       <br>
-| | | |____logback.xml                                                                                                      <br>
-| | | |____platform.properties                      //本工程相关配置,根据需求自由定制                                                  <br>
-<br>
-<br>
-<br>
-
-
+```
+|____src                                       
+| |____main
+| | |____java
+| | | |____com
+| | | | |____tuicr
+| | | | | |____scaffold
+| | | | | | |____ApplicationStartUp.java
+| | | | | | |____Bootstrap.java
+| | | | | | |____controller
+| | | | | | | |____api
+| | | | | | | | |____TestController.java
+| | | | | | | |____RestfulApiAdvice.java            //请求切面监听,initBinder,exceptionHandler都可以在这配置
+| | | | | | |____server
+| | | | | | | |____config                           // spring相关配置
+| | | | | | | | |____CommonConfiguration.java
+| | | | | | | | |____DataSourceConfiguration.java
+| | | | | | | |____MvcConfig.java
+| | | | | | | |____properties                       //对应配置文件,boot自动装置相关配置到对应的bean
+| | | | | | | | |____DataSourceProperties.java
+| | | | | | | |____SecurityConfig.java              //springsecurity相关配置
+| | | | | | | |____ServletContainerCustomizer.java  //配置错误跳转页面
+| | |____resources
+| | | |____application.yml                          //基础配置,(必须)
+| | | |____dbconfig.properties                      //数据源配置
+| | | |____dubbo.properties                         //dubbo配置
+| | | |____i18n                                     //国际化资源文件
+| | | | |____message_en_US.properties
+| | | | |____message_zh_CN.properties
+| | | |____logback.xml
+| | | |____platform.properties                      //本工程相关配置,根据需求自由定制
+```
 
 如需要引入dubbo相关配置，请依赖https://github.com/cyzaoj/spring-boot-dubbo-starter&nbsp;
 工程，系统将自动载入dubbo.properties相关配置
